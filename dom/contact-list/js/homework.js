@@ -6,7 +6,7 @@ function createContactList() {
 	let contacts;
 	let singleContact;
 	let contactsList = document.querySelector('.contacts-list');
-	let contactsText = '';
+	let contactsHTML = '';
 
 	contactsJSON = loadContacts();
 	contacts = JSON.parse(contactsJSON);
@@ -15,12 +15,12 @@ function createContactList() {
 		
 		singleContact = contacts[i];
 
-		contactsText +=
+		contactsHTML +=
 	    `<li data-email=\"${singleContact.email}\" data-phone=\"${singleContact.phone}\"> \n\t <strong>${singleContact.name}</strong> \n </li> \n`;
 
 	}
 
-	contactsList.innerHTML = contactsText;
+	contactsList.innerHTML = contactsHTML;
 
 }
 	

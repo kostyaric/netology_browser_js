@@ -3,12 +3,13 @@
 let totalCount = 0;
 let totalPrice = 0;
 
-function addGoods() {
+function addGoods(event) {
 
 	let elemTotalCount = document.querySelector('span#cart-count');
 	let elemTotalPrice = document.querySelector('span#cart-total-price');
 
-	let currentPrice = +this.dataset.price;
+	// let currentPrice = +this.dataset.price;
+	let currentPrice = +event.target.dataset.price;
 	totalPrice += currentPrice;
 	totalCount++;
 
