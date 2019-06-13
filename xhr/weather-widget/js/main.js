@@ -1,7 +1,11 @@
 const request = new XMLHttpRequest();
-request.open('GET', 'https://neto-api.herokuapp.com/weather', false);
+
+request.open('GET', 'https://neto-api.herokuapp.com/weather', true);
 request.send();
-if (request.status === 200) {
+
+function onload() {
   const response = JSON.parse(request.responseText);
   setData(response);
 }
+
+request.addEventListener('load', onload);
