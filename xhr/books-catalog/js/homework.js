@@ -1,9 +1,8 @@
 'use strict'
 
-let content = '';
-
 function onLoad(event) {
 	
+	let content = document.querySelector('#content');
 	let bookList = JSON.parse(event.target.responseText);
 
 	let contentText = '';
@@ -28,7 +27,6 @@ function onLoad(event) {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-	content = document.querySelector('#content');
 	let xhr = new XMLHttpRequest();
 	xhr.addEventListener('load', onLoad);
 	xhr.open('GET', 'https://neto-api.herokuapp.com/book/', true);

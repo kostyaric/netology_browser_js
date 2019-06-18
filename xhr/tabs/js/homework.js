@@ -35,7 +35,7 @@ function getTabContent(href) {
 	xhr.addEventListener('loadend', onLoadEnd);
 	xhr.addEventListener('progress', onProgress);
 
-	xhr.open('GET', href, true);
+	xhr.open('GET', href);
 	xhr.send();
 
 }
