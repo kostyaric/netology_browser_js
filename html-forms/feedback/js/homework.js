@@ -55,20 +55,35 @@ function onZipKeydown(event) {
 function checkField() {
     
     let validate = inputs.every(input => {
-        return input.value !== '';
+    
+        if (event.target === inputZip) {
+
+            let currentValue = event.target.value;
+            let checkValue = currentValue.replace(/\s+/g, '');
+
+            if (isFinite(checkValue) && checkValue !== '') {
+                event.target.value = checkValue;
+                return true;
+            }
+            else {
+                if (currentValue !== '') {
+                    event.target.value = previosZip;
+                }
+                return false;
+            }
+
+        }
+        else {
+            return input.value !== '';
+        }
+        
     });
 
     if(validate) {
         submitButton.disabled = false;
     }
-
-    if (event.target === inputZip) {
-
-        let currentValue = event.target.value;
-        let checkValue = currentValue.replace(/\s+/g, '');
-
-        event.target.value = isFinite(checkValue) ? checkValue : previosZip;
-
+    else {
+        submitButton.disabled = true;
     }
 
 }
